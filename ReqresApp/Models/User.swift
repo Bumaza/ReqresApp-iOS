@@ -8,13 +8,30 @@
 
 import Foundation
 
-struct User : Decodable {
+struct User : Decodable, Identifiable {
     var id: Int
     var email: String
-    var first_name: String
-    var last_name: String
+    var firstName: String
+    var lastName: String
     var avatar: String
+    
+    init(){
+        id = 0
+        email = ""
+        firstName = ""
+        lastName = ""
+        avatar =  ""
+    }
+    
 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case email
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case avatar
+    }
+    
 }
 
 
